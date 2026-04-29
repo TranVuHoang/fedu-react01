@@ -1,52 +1,31 @@
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import logo from "./logo.svg";
 
-/** Cách 1: Định nghĩa component theo Expression function */
-function One() {
+/** #009 Sử dụng props */
+
+// Sử dụng props cách 1: Truyền props trực tiếp
+function NumberOne(props) {
   return (
-    <div>
-      <h1>Cách 1: Định nghĩa component theo Expression function </h1>
-    </div>
+    <>
+      <div className="col-6">
+        <div className="card">
+          <img src={props.hinhanh} alt="image-700x300" />
+          <div className="card-body">
+            <h1 className="card-title">{props.tieude}</h1>
+            <p className="card-text">Text</p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
-
-/** Cách 2: Định nghĩa component theo Anonymous function */
-const Two = function () {
-  return (
-    <div>
-      <h2>Cách 2: Định nghĩa component theo Anonymous function </h2>
-    </div>
-  );
-};
-
-/** Cách 3: Định nghĩa component theo Arrow function */
-const Three = () => {
-  return (
-    <div>
-      <h2>Cách 3: Định nghĩa component theo Arrow function </h2>
-    </div>
-  );
-};
-
-/** Cách 4: Định nghĩa component theo Class: rcjc + tab */
-// class Four extends Component {
-// render() {
-// return (
-// <>
-// <h2>Cách 4: Định nghĩa component theo Class </h2>
-// </>
-// );
-// }
-// }
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <One />
-        <Two />
-        <Three />
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -56,6 +35,24 @@ function App() {
           React basic
         </a>
       </header>
+
+      <div className="container mt-5">
+        <div className="row">
+          <NumberOne tieude="Samsung" hinhanh="./assets/images/1.jpg" />
+          <NumberOne
+            tieude="Iphone"
+            hinhanh="https://fastly.picsum.photos/id/442/700/300.jpg?hmac=M7oDvld4RjWFtxaXoZi_dv7YHOALf1hRH9cgefVT-1o"
+          />
+          <NumberOne
+            tieude="Xiaomi"
+            hinhanh="https://images.unsplash.com/photo-1768405942784-0d48a1f44fe7"
+          />
+          <NumberOne
+            tieude="Iphone"
+            hinhanh="https://fastly.picsum.photos/id/442/700/300.jpg?hmac=M7oDvld4RjWFtxaXoZi_dv7YHOALf1hRH9cgefVT-1o"
+          />
+        </div>
+      </div>
     </div>
   );
 }
