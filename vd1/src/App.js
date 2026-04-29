@@ -21,6 +21,29 @@ class App1 extends Component {
   }
 }
 
+/** Ví dụ về hàm map */
+const so = [1, 2, 3, 4, 5];
+const so2 = so.map((item) => {
+  return item * 2 + ",";
+});
+console.log(so2);
+
+const so3 = so.map((item) => {
+  return (
+    <ul>
+      <li>Số : {item}</li>
+    </ul>
+  );
+});
+
+
+
+class App2 extends Component {
+  render() {
+    return <div>{so3}</div>;
+  }
+}
+
 // Sử dụng props cách 1: Truyền props trực tiếp
 function NumberOne(props) {
   return (
@@ -76,7 +99,7 @@ const App = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <App1 />
+          <App2 />
         </a>
       </header>
 
