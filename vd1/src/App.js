@@ -3,7 +3,23 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import logo from "./logo.svg";
 
-/** #009 Sử dụng props */
+/** #010 cú pháp JSX */
+const name = "Hoàng IT đẹp trai";
+class App1 extends Component {
+  render() {
+    return (
+      <>
+        <p>Tôi tên là {name}</p>
+        <div className="form-check">
+          <label htmlFor="" className="form-check-label">
+            <input type="checkbox" className="form-check-input" />
+            Display Value
+          </label>
+        </div>
+      </>
+    );
+  }
+}
 
 // Sử dụng props cách 1: Truyền props trực tiếp
 function NumberOne(props) {
@@ -49,18 +65,18 @@ class NumberTwo extends Component {
   }
 }
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://tranvuhoang.github.io"
           target="_blank"
           rel="noopener noreferrer"
         >
-          React basic
+          <App1 />
         </a>
       </header>
 
@@ -90,6 +106,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
