@@ -1,6 +1,14 @@
 const Content = (props) => {
   const { title, description, srcImage, orderLg, alt } = props;
 
+  const thongBao = () => {
+    alert("Bạn có muốn Edit không?");
+  };
+
+  const thongBao2 = () => {
+    alert("Bạn có muốn Remote không?");
+  };
+
   return (
     <section id="scroll">
       <div className="container px-5">
@@ -18,6 +26,16 @@ const Content = (props) => {
             <div className="p-5">
               <h2 className="display-4">{title}</h2>
               <p>{description}</p>
+              <div className="row">
+                <div className="btn btn-group">
+                  <button className="btn btn-info" onClick={thongBao}>
+                    Edit
+                  </button>
+                  <button className="btn btn-warning" onClick={thongBao2}>
+                    Remote
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
