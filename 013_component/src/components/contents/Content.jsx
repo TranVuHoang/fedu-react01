@@ -1,12 +1,25 @@
 const Content = (props) => {
   const { title, description, srcImage, orderLg, alt } = props;
 
+  /** #1. Hàm không có tham số */
   const thongBao = () => {
-    alert("Bạn có muốn Edit không?");
+    return (
+      alert("Bạn có muốn Edit không?"),
+      console.log("Bạn có muốn Edit không?")
+    );
   };
 
   const thongBao2 = () => {
     alert("Bạn có muốn Remote không?");
+  };
+
+  /** #2. Hàm có tham số */
+  const thongBao3 = (message) => {
+    alert(message);
+  };
+
+  const message4 = (message) => {
+    alert(message);
   };
 
   return (
@@ -28,11 +41,23 @@ const Content = (props) => {
               <p>{description}</p>
               <div className="row">
                 <div className="btn btn-group">
+                  <button
+                    className="btn btn-success"
+                    onClick={thongBao3.bind(null, "Bạn có muốn Add không?")}
+                  >
+                    Add
+                  </button>
                   <button className="btn btn-info" onClick={thongBao}>
                     Edit
                   </button>
                   <button className="btn btn-warning" onClick={thongBao2}>
                     Remote
+                  </button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => message4("Bạn có muốn Delete không?")}
+                  >
+                    Delete
                   </button>
                 </div>
               </div>
