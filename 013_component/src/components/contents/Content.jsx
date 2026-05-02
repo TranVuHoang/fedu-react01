@@ -1,5 +1,9 @@
 const Content = (props) => {
   const { title, description, srcImage, orderLg, alt } = props;
+  const state = {
+    trangThai: true,
+    soLuong: 10,
+  };
 
   /** #1. Hàm không có tham số */
   const thongBao = () => {
@@ -39,8 +43,10 @@ const Content = (props) => {
             <div className="p-5">
               <h2 className="display-4">{title}</h2>
               <p>{description}</p>
+
+              {/* Tạo 4 nút bấm: Add, Edit, Remote, Delete */}
               <div className="row">
-                <div className="btn btn-group">
+                <div className="btn d-flex gap-2 justify-content-center">
                   <button
                     className="btn btn-success"
                     onClick={thongBao3.bind(null, "Bạn có muốn Add không?")}
@@ -61,6 +67,21 @@ const Content = (props) => {
                   </button>
                 </div>
               </div>
+
+              <form className="form-inline">
+                <div className="form-group">
+                  <label htmlFor="ten">Tên:</label>
+                  <input
+                    type="text"
+                    name="ten"
+                    id="ten"
+                    className="form-control"
+                    placeholder="Nhập tên"
+                    aria-describedby="helpId"
+                  />
+                  <button className="btn btn-dark">Save</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
