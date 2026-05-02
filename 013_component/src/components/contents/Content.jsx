@@ -71,9 +71,13 @@ const Content = (props) => {
             id="ten"
             className="form-control"
             placeholder="Nhập tên"
+            defaultValue={title}
             aria-describedby="helpId"
           />
-          <button className="btn btn-dark" onClick={saveClick}>
+          <button
+            className="form-control btn btn-dark mt-2"
+            onClick={saveClick}
+          >
             Save
           </button>
         </div>
