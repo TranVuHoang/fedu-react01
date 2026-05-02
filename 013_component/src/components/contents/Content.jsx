@@ -1,9 +1,13 @@
+import { useState } from "react";
+
 const Content = (props) => {
   const { title, description, srcImage, orderLg, alt } = props;
-  const state = {
-    trangThai: 1,
-    soLuong: 10,
-  };
+  // const state = {
+  //   trangThai: 1,
+  //   soLuong: 10,
+  // };
+
+  const [trangThai, setTrangThai] = useState(1);
 
   /** #1. Hàm không có tham số */
   const thongBao = () => {
@@ -22,10 +26,12 @@ const Content = (props) => {
     alert(message);
   };
 
+  // Hàm message4
   const message4 = (message) => {
     alert(message);
   };
 
+  // Hàm render Button để hiển thị 4 nút button
   const renderButton = () => {
     return (
       <div className="row">
@@ -36,7 +42,7 @@ const Content = (props) => {
           >
             Add
           </button>
-          <button className="btn btn-info" onClick={thongBao}>
+          <button className="btn btn-info" onClick={editClick}>
             Edit
           </button>
           <button className="btn btn-warning" onClick={thongBao2}>
@@ -53,11 +59,12 @@ const Content = (props) => {
     );
   };
 
+  // Hàm render Form để hiển thị form
   const renderForm = () => {
     return (
       <form className="form-inline">
         <div className="form-group">
-          <label htmlFor="ten">Tên:</label>
+          <label htmlFor="ten">Edit:</label>
           <input
             type="text"
             name="ten"
@@ -66,18 +73,27 @@ const Content = (props) => {
             placeholder="Nhập tên"
             aria-describedby="helpId"
           />
-          <button className="btn btn-dark">Save</button>
+          <button className="btn btn-dark" onClick={saveClick}>
+            Save
+          </button>
         </div>
       </form>
     );
   };
 
+  // Hàm kiểm tra trạng thái để hiển thị 4 nút Button hoặc hiển thị Form
   const checkDisplay = () => {
-    if (state.trangThai) {
+    if (trangThai) {
       return renderButton();
     }
     return renderForm();
   };
+
+  // Hàm editClick
+  const editClick = () => setTrangThai(0);
+
+  // hàm saveClick
+  const saveClick = () => setTrangThai(1);
 
   return (
     <section id="scroll">
